@@ -373,4 +373,30 @@ defaulting to time-based testing: 60 seconds
 
 ## 무정지 재배포
 
+- API 호출을 통해 상태 확인
+
+```
+siege -c100 -t60S -r10 --content-type "application/json" 'http://a60f713056f2b477caf0532c3e37d2e3-1344816213.ap-northeast-2.elb.amazonaws.com:8080/bookingHistories' -v
+```
+
+- 호출 결과
+
+```
+Lifting the server siege...
+Transactions:                  60364 hits
+Availability:                  99.87 %
+Elapsed time:                  99.02 secs
+Data transferred:              26.53 MB
+Response time:                  0.16 secs
+Transaction rate:             609.61 trans/sec
+Throughput:                     0.27 MB/sec
+Concurrency:                   97.95
+Successful transactions:       60364
+Failed transactions:              80
+Longest transaction:           29.22
+Shortest transaction:           0.02
+```
+
+- POD 기동 확인
+
 <img src="https://user-images.githubusercontent.com/62231786/85087355-497b5480-b218-11ea-804c-6e884f60c92f.JPG" />
